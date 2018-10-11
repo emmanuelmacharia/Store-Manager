@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -51,12 +51,14 @@
 
     </nav>
 
+    <!--ATTENDANT INVENTORY PAGE-->
     <div id="inventory" class="content">
         <main class="products">
 
             <header>
                 <h1>Inventory</h1>
             </header>
+
 
             <p>Here's a list of all the products in our inventory</p>
 
@@ -170,6 +172,79 @@
 
         </main>
     </div>
+    <!--END OF ATTENDNT'S INVENTORY PAGE-->
+    <!--ATTENDANT SALES VIEW-->
+    <div id="sales" class="content">
+        <main class="products">
+            <header>
+                <h1>Sales Records</h1>
+            </header>
+            <p>a list of all sales records</p>
+
+            <input type="search" id="filter-search" onkeyup="filterSearch()" placeholder="Search for sales id" />
+            <table class='sales-table' id='sales-table'>
+
+                <tr>
+                    <th>sales-ID</th>
+                    <th>quantity</th>
+                    <th>price</th>
+                    <th>total</th>
+                </tr>
+                <tr>
+                    <td>0796-1</td>
+                    <td>3</td>
+                    <td>66.67</td>
+                    <td>200</td>
+                </tr>
+                <tr>
+                    <td>1234-1</td>
+                    <td>3</td>
+                    <td>66.67</td>
+                    <td>200</td>
+                </tr>
+                <tr>
+                    <td>1234-1</td>
+                    <td>3</td>
+                    <td>66.67</td>
+                    <td>200</td>
+                </tr>
+                <tr>
+                    <td>1234-1</td>
+                    <td>3</td>
+                    <td>66.67</td>
+                    <td>200</td>
+                </tr>
+                <tr>
+                    <th>TOTAL</th>
+                    <th>12</th>
+                    <th></th>
+                    <th>800</th>
+                </tr>
+            </table>
+            <div id="more-info">
+                <header>more information</header>
+                <div class='target'>
+                    <h4> My total sales: $800</h4>
+
+                    <h4> My sales Target: $1200</h4>
+                    <h4></h4>
+                    <h5>66.7% done</h5>
+                    <h4></h4>
+                    <h5>3 Days to go</h5>
+                </div>
+
+                <div class='target'>
+                    <h4> Store Target: $50000</h4>
+                    <h5>33.6% done</h5>
+                    <h4></h4>
+                    <h5>2 weeks to go</h5>
+                    <h4></h4>
+                </div>
+            </div>
+        </main>
+    </div>
+    <!--END OF ATTENDANTS SALES VIEW -->
+
     <script src="Scripts/main.js"></script>
 </body>
 
