@@ -1,6 +1,6 @@
 
 
-/*-----------------------------------------------------------LOGIN AND FORMS SECTION---------------------------------------------------------*/
+/*-----------------------------------------------------------LOGIN AND FORMS SECTION (index.html)---------------------------------------------------------*/
 #welcome-section {
     top: 0;
     background-color: aliceblue;
@@ -71,5 +71,32 @@
 }
 
 
-/*----------------------------------------------------------- SECTION---------------------------------------------------------*/
+/*----------------------------------------------------------- REGISTER FORM SECTION (register.html)---------------------------------------------------------*/
 
+#register-section {
+    position: absolute;
+    left: 250px;
+    right: 250px;
+    margin-left: 10px;
+    padding: 20px;
+    top: 100px;
+}
+
+#create-attendant label {
+    margin: 10px;
+    padding: 10px;
+    font-size: inherit;
+}
+
+.dropdown {
+    display: flex;
+    flex-direction: column;
+    width: 100% text-align: center;
+    padding: 20px;
+    position: relative;
+    font-size: 16px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+/*----------------------------------------------------------- REGISTER FORM SECTION (register.html)---------------------------------------------------------*/
