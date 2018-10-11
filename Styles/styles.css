@@ -113,4 +113,105 @@
     font-size: 16px;
 }
 
-/*----------------------------------------------------------- ADD PRODUCTS FORM SECTION (add_prducts.html)---------------------------------------------------------*/
+/*----------------------------------------------------------- ADMIN INVENTORY PAGE (manage_products.html)---------------------------------------------------------*/
+
+.products {
+    top: 70px;
+    padding-top: 30px;
+    text-align: center;
+    left: 205px;
+    right: 250px;
+    position: absolute;
+    height: 100vh;
+    width: 68vw;
+}
+
+.products header {
+    margin: 10px;
+    font-weight: bolder;
+    font-size: 1.5em;
+    padding: 10px;
+}
+
+    .products p {
+        margin: 10px;
+        padding: 10px;
+    }
+
+.the_products {
+    left: 250px;
+    right: 250px;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+#single-product {
+    display: flex;
+    /*flex-direction: row;
+    flex-wrap: wrap;*/
+    border: 2px;
+    box-shadow: 5px 5px #888888;
+    margin: 10px;
+    width: 100%;
+}
+
+#single-product img {
+    border: 2px solid;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    float: left;
+    margin: 10px 30px 5px 30px;
+}
+
+#single-product:first-child {
+    float: left;
+}
+
+#single-product p {
+    margin: 20px 20px 30px 20px;
+    float: left;
+}
+
+#price {
+    float: left;
+}
+
+#price, #modify-buttons {
+    padding: 30px 10px;
+    margin-bottom: 10px;
+}
+
+#modify-buttons {
+    float: right;
+}
+
+#price {
+    margin-top: 0;
+}
+
+.the_products ul li {
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.edit {
+    background-color: rgba(0, 122, 16, 0.88);
+}
+
+.delete {
+    background-color: rgba(155, 2, 2, 0.88);
+}
+
+.edit, .delete {
+    padding: 10px 25px;
+    margin: -10px 5px 15px 5px;
+}
+
+.edit:hover, .delete:hover {
+    opacity: 0.75;
+}
+
+
+/*-------------------------------------------------------------ADMIN INVENTORY PAGE (manage_products)---------------------------------------------------------------*/
+
