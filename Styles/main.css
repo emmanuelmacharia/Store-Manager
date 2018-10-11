@@ -172,3 +172,14 @@ footer {
 #more-info h4 {
     text-align: center;
 }
+
+.analytic {
+    margin-bottom: 10px;
+    text-align: center;
+    !important padding: 5px;
+}
+
+.target {
+    margin-top: 40px;
+    padding: 10px;
+}
