@@ -20,3 +20,6 @@ function navtab(evnt, navigate) {
 }
 
 document.getElementById('default').click();
+
+
+
