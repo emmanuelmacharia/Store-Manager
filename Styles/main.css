@@ -177,8 +177,8 @@ footer {
 
 .analytic {
     margin-bottom: 10px;
-    text-align: center;
-    !important padding: 5px;
+    text-align: center !important;
+    padding: 5px;
 }
 
 .target {
