@@ -154,7 +154,6 @@
         </main>
     </div>
     <!--END OF ADMIN INVENTORY PAGE-->
-    
     <!--ADMIN VIEW ATTENDANTS PAGE-->
     <div id="attendants" class="content">
         <main class="products">
@@ -262,9 +261,276 @@
         </main>
     </div>
     <!--END OF ADMIN ATTENDANTS PAGE-->
-
     <!--ADMIN SALES RECORDS PAGE-->
+    <div id="sales" class="content">
+        <main class="products">
+            <header>
+                <h1>Sales Records</h1>
+            </header>
+            <p>a list of all sales records</p>
 
+            <input type="search" id="filter-search" onkeyup="filterSearch()" placeholder="Search for Attendant's name" />
+            <table class='sales-table' id='sales-table'>
+
+                <tr>
+                    <th>sales-ID</th>
+                    <th>Attendant Name</th>
+                    <th>Attendant-ID</th>
+                    <th>quantity</th>
+                    <th>price</th>
+                    <th>total</th>
+                </tr>
+                <tr>
+                    <td>0796-1</td>
+                    <td>Emmanuel</td>
+                    <td>0001-atd</td>
+                    <td>3</td>
+                    <td>200</td>
+                    <td>600</td>
+                </tr>
+                <tr>
+                    <td>1234-1</td>
+                    <td>sam</td>
+                    <td>0001-atd</td>
+                    <td>3</td>
+                    <td>200</td>
+                    <td>600</td>
+                </tr>
+                <tr>
+                    <td>1234-1</td>
+                    <td>Trericacy</td>
+                    <td>0001-atd</td>
+                    <td>3</td>
+                    <td>200</td>
+                    <td>600</td>
+                </tr>
+                <tr>
+                    <td>1234-1</td>
+                    <td>Tracy</td>
+                    <td>0001-atd</td>
+                    <td>3</td>
+                    <td>200</td>
+                    <td>600</td>
+                </tr>
+                <tr>
+                    <td>1234-1</td>
+                    <td>eric</td>
+                    <td>0001-atd</td>
+                    <td>3</td>
+                    <td>200</td>
+                    <td>600</td>
+                </tr>
+                <tr>
+                    <td>1234-1</td>
+                    <td>Dan</td>
+                    <td>0001-atd</td>
+                    <td>3</td>
+                    <td>200</td>
+                    <td>600</td>
+                </tr>
+                <tr>
+                    <td>1234-1</td>
+                    <td>Brian</td>
+                    <td>0001-atd</td>
+                    <td>3</td>
+                    <td>200</td>
+                    <td>600</td>
+                </tr>
+                <tr>
+                    <td>1234-1</td>
+                    <td>Rodgers</td>
+                    <td>0001-atd</td>
+                    <td>3</td>
+                    <td>200</td>
+                    <td>600</td>
+                </tr>
+                <tr>
+                    <td>1234-1</td>
+                    <td>qwerty</td>
+                    <td>0001-atd</td>
+                    <td>3</td>
+                    <td>200</td>
+                    <td>600</td>
+                </tr>
+                <tr>
+                    <td>1234-1</td>
+                    <td>keyboard</td>
+                    <td>0001-atd</td>
+                    <td>3</td>
+                    <td>200</td>
+                    <td>600</td>
+                </tr>
+                <tr>
+                    <td>1234-1</td>
+                    <td>dog</td>
+                    <td>0001-atd</td>
+                    <td>3</td>
+                    <td>200</td>
+                    <td>600</td>
+                </tr>
+                <tr>
+                    <td>1234-1</td>
+                    <td>Kitten</td>
+                    <td>0001-atd</td>
+                    <td>3</td>
+                    <td>200</td>
+                    <td>600</td>
+                </tr>
+                <tr>
+                    <td>1234-1</td>
+                    <td>Hedgehod</td>
+                    <td>0001-atd</td>
+                    <td>3</td>
+                    <td>200</td>
+                    <td>600</td>
+                </tr>
+                <tr>
+                    <td>1234-1</td>
+                    <td>Tom</td>
+                    <td>0001-atd</td>
+                    <td>3</td>
+                    <td>200</td>
+                    <td>600</td>
+                </tr>
+                <tr>
+                    <td>1234-1</td>
+                    <td>Jerry</td>
+                    <td>0001-atd</td>
+                    <td>3</td>
+                    <td>200</td>
+                    <td>600</td>
+                </tr>
+                <tr>
+                    <td>1234-1</td>
+                    <td>Chowder</td>
+                    <td>0001-atd</td>
+                    <td>3</td>
+                    <td>200</td>
+                    <td>600</td>
+                </tr>
+                <tr>
+                    <td>1234-1</td>
+                    <td>Johnny Test</td>
+                    <td>0001-atd</td>
+                    <td>3</td>
+                    <td>200</td>
+                    <td>600</td>
+                </tr>
+                <tr>
+                    <td>1234-1</td>
+                    <td>Johnny Bravo</td>
+                    <td>0001-atd</td>
+                    <td>3</td>
+                    <td>200</td>
+                    <td>600</td>
+                </tr>
+                <tr>
+                    <td>1234-1</td>
+                    <td>Mickey</td>
+                    <td>0001-atd</td>
+                    <td>3</td>
+                    <td>200</td>
+                    <td>600</td>
+                </tr>
+                <tr>
+                    <td>1234-1</td>
+                    <td>Hickey</td>
+                    <td>0001-atd</td>
+                    <td>3</td>
+                    <td>200</td>
+                    <td>600</td>
+                </tr>
+                <tr>
+                    <td>1234-1</td>
+                    <td>Spongebob</td>
+                    <td>0001-atd</td>
+                    <td>3</td>
+                    <td>200</td>
+                    <td>600</td>
+                </tr>
+                <tr>
+                    <td>1234-1</td>
+                    <td>Patrick</td>
+                    <td>0001-atd</td>
+                    <td>3</td>
+                    <td>200</td>
+                    <td>600</td>
+                </tr>
+                <tr>
+                    <td>1234-1</td>
+                    <td>Squidward</td>
+                    <td>0001-atd</td>
+                    <td>3</td>
+                    <td>200</td>
+                    <td>600</td>
+                </tr>
+                <tr>
+                    <td>1234-1</td>
+                    <td>Emmanuel</td>
+                    <td>0001-atd</td>
+                    <td>3</td>
+                    <td>200</td>
+                    <td>600</td>
+                </tr>
+                <tr>
+                    <td>1234-1</td>
+                    <td>Crabs</td>
+                    <td>0001-atd</td>
+                    <td>3</td>
+                    <td>200</td>
+                    <td>600</td>
+                </tr>
+                <tr>
+                    <td>1234-1</td>
+                    <td>Marty</td>
+                    <td>0001-atd</td>
+                    <td>3</td>
+                    <td>200</td>
+                    <td>600</td>
+                </tr>
+                <tr>
+                    <td>1234-1</td>
+                    <td>Dexter</td>
+                    <td>0001-atd</td>
+                    <td>3</td>
+                    <td>200</td>
+                    <td>600</td>
+                </tr>
+                <tr>
+                    <th>TOTAL</th>
+                    <th></th>
+                    <th></th>
+                    <th>84</th>
+                    <th>5600</th>
+                    <th>16800</th>
+                </tr>
+            </table>
+            <div id="more-info">
+                <header>more information</header>
+                <div class='target'>
+                    <h4> Total sales: $16800</h4>
+
+                    <h4> Store Target: $50000</h4>
+                </div>
+                <div class='target'>
+                    <h4> The Ones to watch</h4>
+                    <ul>
+                        <li>Chowder- high peformer</li>
+                        <li>Johnny Bravo- Consistent Improvement</li>
+                        <li>Spongebob- High peformer</li>
+                    </ul>
+                </div>
+                <div class='target'>
+                    <h4> Observe</h4>
+                    <ul>
+                        <li>Hickey- peformance dip</li>
+                        <li>Squidward- plateau</li>
+                        <li>Tom- peformance dip</li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+    </div>
 
     <!--END OF ADMIN SALES RECORDS PAGE-->
     <script src="Scripts/main.js"></script>

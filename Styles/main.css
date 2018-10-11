@@ -54,27 +54,6 @@ body {
     height: 100%;
 }
 
-
-/*----------------------------------------------------------- FOOTER SECTION---------------------------------------------------------*/
-/*.footer {
-    width: 100%;
-    padding-bottom: 100px;
-    background-color: aqua;
-    float: left;
-    text-align: center;
-}*/
-
-footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 10vh;
-    background-color: aqua;
-    text-align: center;
-}
-
-/*----------------------------------------------------------- SIDE NAVBAR SECTION---------------------------------------------------------*/
-
 #search {
     padding: 2px 10px 2px 10px;
     margin-right: 30px;
@@ -95,6 +74,27 @@ footer {
     text-align: center;
 
 }
+/*----------------------------------------------------------- FOOTER SECTION---------------------------------------------------------*/
+/*.footer {
+    width: 100%;
+    padding-bottom: 100px;
+    background-color: aqua;
+    float: left;
+    text-align: center;
+}*/
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 10vh;
+    background-color: aqua;
+    text-align: center;
+}
+
+/*----------------------------------------------------------- LEFT SIDE NAVBAR SECTION---------------------------------------------------------*/
+
+
 
 #sidebar {
     position: fixed;
@@ -114,10 +114,12 @@ footer {
 }
 
 .sidenav {
-    flex-basis: 15%;
+    flex-basis: 19%;
     width: 100%;
+    padding: 20px;
     border: 3px;
     cursor: pointer;
+    margin: 5px 10px 5px 0;
     border: 1px;
     background-color: inherit;
     font-size: 16px;
