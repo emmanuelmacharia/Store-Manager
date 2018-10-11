@@ -240,35 +240,3 @@
     padding: 10px;
 }
 
-/*-------------------------------------------------------------ATTENDANT HOME PAGE (attendant.html)---------------------------------------------------------------*/
-
-
-#cart {
-    width: 100%;
-    margin-top 30px;
-    overflow-x: auto;
-}
-
-#cart table {
-    border-collapse: collapse;
-    width: 100%;
-    border: 0.2px solid lightgray;
-}
-
-#cart table th td {
-     padding: 20px;
-     margin: 20px;
-}
-
-#cart table tr:nth-child(odd) {
-    background-color: ghostwhite;
-}
-
-.checkout {
-    width: 100% !important;
-    height: 30px !important;
-    bottom: 50px !important; 
-    padding: 10px;
-    text-align: center;
-    margin-top: 50px
-}
