@@ -75,3 +75,69 @@ footer {
 
 /*----------------------------------------------------------- SIDE NAVBAR SECTION---------------------------------------------------------*/
 
+#search {
+    padding: 2px 10px 2px 10px;
+    margin-right: 30px;
+    display: inline;
+    border-radius: 15px;
+    display: inline-block;
+    font-size: 16px;
+}
+
+#search button {
+    width: 70px;
+    height: 34px;
+}
+
+#search input {
+    width: 550px;
+    height: 34px;
+    text-align: center;
+
+}
+
+#sidebar {
+    position: fixed;
+    top: 68px;
+    border: 10px;
+    left: 0px;
+    width: 200px;
+    min-width: 190px;
+    height: 100%;
+    border-right: solid;
+    background-color: lightgray;
+}
+
+#sidenav-items {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidenav {
+    flex-basis: 15%;
+    width: 100%;
+    border: 3px;
+    cursor: pointer;
+    border: 1px;
+    background-color: inherit;
+    font-size: 16px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.sidenav:active, .sidenav:hover, .topnav:hover, .topnav:active {
+    background-color: lightslategray;
+    flex-basis: 19%;
+    width: 100%;
+    padding: 20px;
+    border: 3px;
+    margin: 5px 10px 5px 0;
+}
+
+#side-header {
+    padding: 20px 0px;
+}
+
+#profile-picture {
+    padding: 0;
+    height: 200px;
+}

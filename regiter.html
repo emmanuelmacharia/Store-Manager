@@ -1,0 +1,99 @@
+﻿﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Create Attendant</title>
+    <link rel="stylesheet" type="text/css" href="Styles/main.css" />
+    <link rel="stylesheet" type="text/css" href="Styles/styles.css" />
+
+</head>
+
+
+<body>
+    <nav id="navbar-admin">
+        <ul>
+            <li>
+                <div id="search">
+                    <form>
+                        <input type="search" placeholder="Search..." name="search" class="search" />
+                        <button type="submit" autofocus>Search</button>
+                    </form>
+                </div>
+            </li>
+            <li>
+                <button class="topnav" href="#inventory">#</button>
+            </li>
+
+            <li>
+                <form action="inventory.html"><button class="topnav">Sote</button></form>
+            </li>
+            <li>
+                <form action="add_attendant.html"><button class="topnav">Add Attendant</button></form>
+            </li>
+            <li>
+                <form action="index.html"><button class="topnav">Logout</button></form>
+            </li>
+
+        </ul>
+    </nav>
+
+    <nav id="sidebar">
+
+        <div id="sidenav-items">
+            <img class="sidenav" id="profile-picture" src="C:\Users\Marsha11\Pictures\Saved Pictures\lumia.jpg" alt="profile photo" />
+
+            <h4 class="sidenav" id="side-header">Admin</h4>
+
+            <button class="sidenav" onclick="navtab(event, inventory)" href="#inventory">Inventory</button>
+
+            <button class="sidenav" onclick="navtab(event, inventory)" href="#inventory">Attendants</button>
+
+            <button class="sidenav" onclick="navtab(event, inventory)" href="#inventory">Sales</button>
+
+        </div>
+
+    </nav>
+
+    <section id="register-section">
+
+        <div>
+
+            <form id="create-attendant">
+
+                <input type="text" placeholder="enter employee's full name" required />
+
+                <input type="email" placeholder="enter company email" required />
+
+                <input type="password" placeholder="enter employee password" required />
+
+                <input type="password" placeholder="confirm password" required />
+
+                <div class="dropdown">
+
+                    <label for='role'>Under what capacity will the new employee be?</label>
+
+                    <select id="dropdown" name="satisfaction">
+
+                        <option disabled value="Select">Select</option>
+
+                        <option value="Attendant"> Attendant</option>
+
+                        <option value="Manager"> Manager</option>
+
+                    </select>
+
+                </div>
+                <!--  <input name='role' type="checkbox" placeholder="enter employee's role" required /> -->
+
+                <button id="submit-button" type="submit">Submit</button>
+
+            </form>
+
+        </div>
+
+    </section>
+    <script src="Scripts/main.js"></script>
+</body>
+
+</html>
