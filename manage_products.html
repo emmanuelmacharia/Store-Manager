@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Add Products</title>
+    <link rel="stylesheet" type="text/css" href="Styles/main.css" />
+    <link rel="stylesheet" type="text/css" href="Styles/styles.css" />
+</head>
+
+<body>
+    <!--NAVBAR AND SIDEBAR FOR ADMIN-->
+    <nav id="navbar-admin">
+        <ul>
+            <li>
+                <div id="search">
+                    <form>
+                        <input type="search" placeholder="Search..." name="search" class="search" />
+                        <button type="submit" autofocus>Search</button>
+                    </form>
+                </div>
+            </li>
+
+            <li>
+                <form action="inventory.html"><button class="topnav">Sote</button></form>
+            </li>
+            <li>
+                <form action="add_attendant.html"><button class="topnav">Add Attendant</button></form>
+            </li>
+            <li>
+                <form action="index.html"><button class="topnav">Logout</button></form>
+            </li>
+
+        </ul>
+    </nav>
+
+
+    <nav id="sidebar">
+
+        <div id="sidenav-items">
+            <img class="sidenav" id="profile-picture" src="C:\Users\Marsha11\Pictures\Saved Pictures\lumia.jpg" alt="profile photo" />
+
+            <h4 class="sidenav" id="side-header">Admin</h4>
+
+            <button class="sidenav" onclick="navtab(event, inventory)" href="#inventory">Inventory</button>
+
+            <button class="sidenav" onclick="navtab(event, inventory)" href="#inventory">Attendants</button>
+
+            <button class="sidenav" onclick="navtab(event, inventory)" href="#inventory">Sales</button>
+
+        </div>
+
+    </nav>
+
+    <!--ADMIN INVENTORY PAGE-->
+    <div id="inventory" class="content">
+        <main class="products">
+
+            <header>
+                <h1>Inventory</h1>
+            </header>
+
+            <p>Here's a list of all the products in our inventory</p>
+
+            <div class="the_products">
+                <ul>
+                    <li>
+                        <div id="single-product">
+                            <img src="C:\Users\Marsha11\Pictures\Saved Pictures\lumia.jpg" alt="product-photo" />
+                            <p>Product description-lumia 935 4GB RAM, 128GB storage</p>
+                            <div id="price">
+                                $100
+                            </div>
+                            <div id="modify-buttons">
+                                <button class="edit">Edit</button>
+                                <button class="delete">Delete</button>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div id="single-product">
+                            <img src="C:\Users\Marsha11\Pictures\Saved Pictures\lumia.jpg" alt="product-photo" />
+                            <p>Product description-lumia 935 4GB RAM, 128GB storage</p>
+                            <div id="price">
+                                $100
+                            </div>
+                            <div id="modify-buttons">
+                                <button class="edit">Edit</button>
+                                <button class="delete">Delete</button>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div id="single-product">
+                            <img src="C:\Users\Marsha11\Pictures\Saved Pictures\lumia.jpg" alt="product-photo" />
+                            <p>Product description-lumia 935 4GB RAM, 128GB storage</p>
+                            <div id="price">
+                                $100
+                            </div>
+                            <div id="modify-buttons">
+                                <button class="edit">Edit</button>
+                                <button class="delete">Delete</button>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div id="single-product">
+                            <img src="C:\Users\Marsha11\Pictures\Saved Pictures\lumia.jpg" alt="product-photo" />
+                            <p>Product description-lumia 935 4GB RAM, 128GB storage</p>
+                            <div id="price">
+                                $100
+                            </div>
+                            <div id="modify-buttons">
+                                <button class="edit">Edit</button>
+                                <button class="delete">Delete</button>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div id="single-product">
+                            <img src="C:\Users\Marsha11\Pictures\Saved Pictures\lumia.jpg" alt="product-photo" />
+                            <p>Product description-lumia 935 4GB RAM, 128GB storage</p>
+                            <div id="price">
+                                $100
+                            </div>
+                            <div id="modify-buttons">
+                                <button class="edit">Edit</button>
+                                <button class="delete">Delete</button>
+                            </div>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+            <div id="more-info">
+                <header>more information</header>
+                <div class='target'>
+                    <h3 class='analytic'>the products that are running out of stock</h3>
+                    <ul>
+                        <li>Surface Studio 2: 3 left
+                        <li>
+                        <li>Imac pro: 9 left
+                        <li>
+                        <li>OnePlus 6: sold-out
+                        <li>
+                    </ul>
+
+                </div>
+            </div>
+        </main>
+    </div>
+    <!--END OF ADMIN INVENTORY PAGE-->
+    <script src="Scripts/main.js"></script>
+</body>
+</html>

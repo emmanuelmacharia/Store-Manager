@@ -141,3 +141,34 @@ footer {
     padding: 0;
     height: 200px;
 }
+
+
+/*------------------------------------------------------------RIGHT SIDE BAR STYLING--------------------------------------------------------------------------------*/
+#more-info {
+    position: fixed;
+    top: 68px;
+    border: 10px;
+    right: 0px;
+    width: 200px;
+    min-width: 190px;
+    height: 100%;
+    border-left: solid;
+    text-align: left;
+}
+
+#more-info ul {
+    padding-top: 10px;
+    margin-bottom: 30px;
+}
+
+#more-info ul li {
+    list-style-type: none;
+}
+
+#more-info header {
+    text-align: center;
+}
+
+#more-info h4 {
+    text-align: center;
+}
