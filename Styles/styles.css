@@ -195,6 +195,10 @@
     list-style-type: none;
 }
 
+.product-name {
+    color: inherit;
+}
+
 .edit {
     background-color: rgba(0, 122, 16, 0.88);
 }
@@ -213,5 +217,26 @@
 }
 
 
-/*-------------------------------------------------------------ADMIN INVENTORY PAGE (manage_products)---------------------------------------------------------------*/
+/*-------------------------------------------------------------ADMIN SALES PAGE (manage_products)---------------------------------------------------------------*/
+
+#filter-search {
+    width: 50%;
+    height: 30px;
+    border: 1px solid;
+    border-radius: 5px;
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+}
+
+.sales-table {
+    width: 100%;
+    border: 2px solid;
+}
+
+.sales-table th, .sales-table td {
+    border: 1px solid;
+    text-align: left;
+    padding: 10px;
+}
 
