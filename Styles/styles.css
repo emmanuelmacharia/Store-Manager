@@ -1,0 +1,75 @@
+
+
+/*-----------------------------------------------------------LOGIN AND FORMS SECTION---------------------------------------------------------*/
+#welcome-section {
+    top: 0;
+    background-color: aliceblue;
+    height: 100%;
+    width: 60%;
+    padding-top: 40vh;
+    padding-bottom: 20px;
+}
+
+
+
+.login {
+    width: 40%;
+    height: 100%;
+    padding: 10% 0 10% 0;
+    padding-top: 130px; 
+    margin-top: 20px;
+    float: left;
+    background-color: lightslategray;
+}
+
+#login, #create-attendant {
+    position: relative;
+    padding: 10px 20px 30px 20px;
+    max-width: 400px;
+    text-align: center;
+    margin: 10px auto 80px;
+    min-height: 100vh;
+}
+
+
+#login input, #create-attendant input {
+    padding: 20px;
+    position: relative;
+    text-align: center;
+    margin: 5px 10px 5px 10px;
+    width: 100%;
+    border: 0;
+    font-size: 16px;
+    cursor: auto;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+
+#signin-button, #submit-button {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    cursor: pointer;
+    position: relative;
+    outline: 0;
+    width: 100%;
+    margin-top: 20px;
+    margin-left: 10px;
+    font-size: 16px;
+    text-align: center;
+    text-transform: capitalize;
+    font-weight: 100;
+    /*background-color:*/
+    padding: 10px 0 10px 0px;
+    border-radius: 5px;
+}
+
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+
+/*----------------------------------------------------------- SECTION---------------------------------------------------------*/
+
