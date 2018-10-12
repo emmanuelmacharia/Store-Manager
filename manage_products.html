@@ -42,11 +42,11 @@
 
             <h4 class="sidenav" id="side-header">Admin</h4>
 
-            <button class="sidenav" onclick="navtab(event, inventory)" href="#inventory">Inventory</button>
+            <button class="sidenav" id="default" onclick="navtab(event, 'inventory')">Inventory</button>
 
-            <button class="sidenav" onclick="navtab(event, inventory)" href="#inventory">Attendants</button>
+            <button class="sidenav" onclick="navtab(event, 'attendants')">Attendants</button>
 
-            <button class="sidenav" onclick="navtab(event, inventory)" href="#inventory">Sales</button>
+            <button class="sidenav" onclick="navtab(event, 'sales')">Sales</button>
 
         </div>
 
@@ -154,6 +154,119 @@
         </main>
     </div>
     <!--END OF ADMIN INVENTORY PAGE-->
+    
+    <!--ADMIN VIEW ATTENDANTS PAGE-->
+    <div id="attendants" class="content">
+        <main class="products">
+
+            <header>
+                <h1>Human Resource</h1>
+            </header>
+
+            <p>Here's a list of all the Attendants</p>
+
+            <div class="the_products">
+                <ul>
+                    <li>
+                        <div id="single-product">
+                            <img src="C:\Users\Marsha11\Pictures\Saved Pictures\lumia.jpg" alt="profile-photo" />
+                            <p>Attendant name</p>
+                            <div id="price">
+                                Atd-id
+                            </div>
+                            <div id="modify-buttons">
+                                <button class="edit">Edit</button>
+                                <button class="delete">Delete</button>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div id="single-product">
+                            <img src="C:\Users\Marsha11\Pictures\Saved Pictures\lumia.jpg" alt="profile-photo" />
+                            <p>Attendant name</p>
+                            <div id="price">
+                                Atd-id
+                            </div>
+                            <div id="modify-buttons">
+                                <button class="edit">Edit</button>
+                                <button class="delete">Delete</button>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div id="single-product">
+                            <img src="C:\Users\Marsha11\Pictures\Saved Pictures\lumia.jpg" alt="profile-photo" />
+                            <p>Attendant name</p>
+                            <div id="price">
+                                Atd-id
+                            </div>
+                            <div id="modify-buttons">
+                                <button class="edit">Edit</button>
+                                <button class="delete">Delete</button>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div id="single-product">
+                            <img src="C:\Users\Marsha11\Pictures\Saved Pictures\lumia.jpg" alt="profile-photo" />
+                            <p>Attendant name</p>
+                            <div id="price">
+                                Atd-id
+                            </div>
+                            <div id="modify-buttons">
+                                <button class="edit">Edit</button>
+                                <button class="delete">Delete</button>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div id="single-product">
+                            <div>
+                                <img src="C:\Users\Marsha11\Pictures\Saved Pictures\lumia.jpg" alt="profile-photo" />
+                                <p>Attendant name</p>
+                                <div id="price">
+                                    Atd-id
+                                </div>
+                            </div>
+                            <div id="modify-buttons">
+                                <button class="edit">Edit</button>
+                                <button class="delete">Delete</button>
+                            </div>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+            <div id="more-info">
+                <header>more information</header>
+                <div class='target'>
+                    <h3 class='analytic'>28</h3>
+                    <p>the total number of attendants</p>
+                </div>
+                <div class='target'>
+                    <h3 class='analytic'>Best Peforming</h3>
+                    <ul>
+                        <li>Patrick Star</li>
+                        <li>Chowder</li>
+                        <li>Jerry</li>
+                        <li>Dexter</li>
+                    </ul>
+                </div>
+            </div>
+
+
+        </main>
+    </div>
+    <!--END OF ADMIN ATTENDANTS PAGE-->
+
+    <!--ADMIN SALES RECORDS PAGE-->
+
+
+    <!--END OF ADMIN SALES RECORDS PAGE-->
     <script src="Scripts/main.js"></script>
 </body>
 </html>
