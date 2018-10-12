@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Attendant</title>
+    <link rel="stylesheet" type="text/css" href="Styles/main.css" />
+    <link rel="stylesheet" type="text/css" href="Styles/styles.css" />
+</head>
+
+<body>
+    <!--NAVBAR AND SIDEBAR FOR ATTENDANT-->
+    <nav id="navbar-admin">
+        <ul>
+            <li>
+                <div id="search">
+                    <form>
+                        <input type="search" placeholder="Search..." name="search" class="search" />
+                        <button type="submit" autofocus>Search</button>
+                    </form>
+                </div>
+            </li>
+
+            <li>
+                <form action="attendant.html"><button class="topnav">Sote</button></form>
+            </li>
+            <li>
+                <form action="#cart"><button class="topnav">Add to cart</button></form>
+            </li>
+            <li>
+                <form action="index.html"><button class="topnav">Logout</button></form>
+            </li>
+
+        </ul>
+    </nav>
+
+    <nav id="sidebar">
+
+        <div id="sidenav-items">
+            <img class="sidenav" id="profile-picture" src="C:\Users\Marsha11\Pictures\Saved Pictures\lumia.jpg" alt="profile photo" />
+
+            <h4 class="sidenav" id="side-header">Attendant</h4>
+
+            <button class="sidenav" id="default" onclick="navtab(event, 'inventory')">Inventory</button>
+
+            <!--<button class="sidenav" onclick="navtab(event, 'attendants')">Attendants</button>-->
+
+            <button class="sidenav" onclick="navtab(event, 'sales')">Sales</button>
+
+        </div>
+
+    </nav>
+
+    <div id="inventory" class="content">
+        <main class="products">
+
+            <header>
+                <h1>Inventory</h1>
+            </header>
+
+            <p>Here's a list of all the products in our inventory</p>
+
+            <div class="the_products">
+                <ul>
+                    <li>
+                        <div id="single-product">
+                            <img src="C:\Users\Marsha11\Pictures\Saved Pictures\lumia.jpg" alt="product-photo" />
+                            <p class="product-name">Lumia 935</p>
+                            <p>Product description-lumia 935 4GB RAM, 128GB storage</p>
+                            <div id="price" class='price'>$100</div>
+                            <div id="modify-buttons">
+                                <button class="edit product-id product-name price">Add to cart</button>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                    <li>
+                        <div id="single-product">
+                            <img src="C:\Users\Marsha11\Pictures\Saved Pictures\lumia.jpg" alt="product-photo" />
+                            <p class="product-name">Lumia 935</p>
+                            <p>Product description-lumia 935 4GB RAM, 128GB storage</p>
+                            <div id="price" class='price'>$100</div>
+                            <div id="modify-buttons">
+                                <button class="edit product-id product-name price">Add to cart</button>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div id="single-product">
+                            <img src="C:\Users\Marsha11\Pictures\Saved Pictures\lumia.jpg" alt="product-photo" />
+                            <p class="product-name">Lumia 935</p>
+                            <p>Product description-lumia 935 4GB RAM, 128GB storage</p>
+                            <div id="price" class='price'>$100</div>
+                            <div id="modify-buttons">
+                                <button class="edit product-id product-name price">Add to cart</button>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div id="single-product">
+                            <img src="C:\Users\Marsha11\Pictures\Saved Pictures\lumia.jpg" alt="product-photo" />
+                            <p class="product-name">Lumia 935</p>
+                            <p>Product description-lumia 935 4GB RAM, 128GB storage</p>
+                            <div id="price" class='price'>$100</div>
+                            <div id="modify-buttons">
+                                <button class="edit product-id product-name price">Add to cart</button>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                    <li>
+                        <div id="single-product">
+                            <img src="C:\Users\Marsha11\Pictures\Saved Pictures\lumia.jpg" alt="product-photo" />
+                            <p class="product-name">Lumia 935</p>
+                            <p>Product description-lumia 935 4GB RAM, 128GB storage</p>
+                            <div id="price" class='price'>$100</div>
+                            <div id="modify-buttons">
+                                <button class="edit product-id product-name price">Add to cart</button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div id="more-info">
+                <header>My Tasks</header>
+                <ul>
+                    <li>Arrange the shelves</li>
+                    <li>clean the aisles</li>
+                    <li>rewrite the records</li>
+                </ul>
+
+                <h4>the product that are running out of stock</h4>
+                <ul>
+                    <li>Surface Studio 2</li>
+                    <li>Imac Pro</li>
+                    <li>One Plus 6</li>
+                </ul>
+
+
+                <div id='cart'>
+                    <header>Cart</header>
+                    <table>
+                        <tr>
+                            <th>Product Name</th>
+                            <th>Price</th>
+                        </tr>
+                        <tr>
+                            <td>Surface Phone</td>
+                            <td>$1000</td>
+                        </tr>
+                        <tr>
+                            <td>surface pen</td>
+                            <td>$100</td>
+                        </tr>
+                        <tr>
+                            <td>Dail</td>
+                            <td>$100</td>
+                        </tr>
+                        <th>Grand Total</th>
+                        <th>$1200</th>
+                    </table>
+                </div>
+                <button class="edit checkout">Checkout</button>
+            </div>
+
+
+        </main>
+    </div>
+    <script src="Scripts/main.js"></script>
+</body>
+
+
+
+
+</html>
+
+
+
+
+
