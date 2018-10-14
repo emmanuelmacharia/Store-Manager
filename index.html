@@ -18,7 +18,7 @@
                 <form action="#welcome-section"><button class="topnav">Sote</button></form>
             </li>
             <li>
-                <form action="#login"><button class="topnav">Login</button></form>
+                <form action="#loginform"><button class="topnav">Login</button></form>
             </li>
         </ul>
     </nav>
@@ -29,7 +29,7 @@
             <p>a collaborative store management platform</p>
         </div>
 
-        <div class="login">
+        <div class="login" id="loginform">
             <form id="login">
                 <input type="text" placeholder="enter employee id" required />
 
@@ -37,7 +37,8 @@
 
                 <input type="password" placeholder="enter your password" required />
 
-                <button id="signin-button" type="submit">Login</button>
+                <button id="signin-button"  type="submit"><a class="signins" href='manage_products.html'>Login as admin</a></button>
+                <button id="signin-button" type="submit"><a  class="signins" href='attendant.html'>Login as attendant</a></button>
             </form>
 
         </div>
