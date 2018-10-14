@@ -46,7 +46,7 @@ body {
  }
 
 .topnav {
-    flex-basis: 19%;
+    /*flex-basis: 19%;*/
     background-color: lightgray;
     border: 0;
     padding: 20px;
