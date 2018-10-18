@@ -18,5 +18,12 @@ class TestProductApis(unittest.TestCase):
         response = self.app.get('http://localhost:50931/attendant/sales')
         self.assertEqual(response.status_code, 200)
 
+    def test_single_sale_found(self):
+        '''Tests whether the sale with the id provided is there, returns status_code 404'''
+        newsale = {'saleid':1, 'product': 'Hp', 'quantity': 1, 'price': 5000}
+        response = self.app.post('http://localhost:50931/attendant/sales', data = json.dumps(newsale), content_type = 'application/json')
+        response = self.app.get('http://localhost:50931/admin/sales/1')
+        self.assertEqual(response.status_code, 200)
+        
 if __name__ == '__main__':
     unittest.main(exit= False)
