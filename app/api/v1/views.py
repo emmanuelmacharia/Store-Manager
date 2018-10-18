@@ -32,6 +32,13 @@ class AdminProducts(Resource):
             return products, 201
         return 'User not allowed to create a product'
 
+class AttendantProducts(Resource):
+    '''endpoints for viewing all the products in the inventory by the attendant'''
+
+    def get(self):
+        '''Views all the products in the application'''
+        attendant_products = AdminProducts.get(self)
+        return attendant_products
 
 class Product(Resource):
     '''Endpoint that allows a user to view a single product'''
