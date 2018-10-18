@@ -51,6 +51,20 @@ class AttendantSales(Resource):
         '''views all sales made by the attendant'''
         return jsonify({'sales':sales})
 
+    def post(self):
+        '''Creates a new sale by the attendant'''
+        id = len(sales)+1
+        data = request.get_json()
+        price = data['price']
+        quantity = data['quantity']
+        productname = data['productname']
+        description = data['description']
+
+        payload = { 'productname': productname, 'description':description, 'quantity': quantity , 'price': price }
+        sales[id] = payload
+
+        return sales, 201
+
 
 class AdminSale(Resource):
     '''Endpoints for viewing sales by Admin'''
