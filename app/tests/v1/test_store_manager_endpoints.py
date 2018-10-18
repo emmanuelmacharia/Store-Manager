@@ -19,3 +19,8 @@ class TestProductApis(unittest.TestCase):
         '''Tests the get (view all) products method for the attendant, asserts true if the test passes and gives a status code of 200'''
         response = self.app.get('/attendant/products')
         self.assertEqual(response.status_code, 200)
+
+
+if __name__ == '__main__':
+    unittest.main(exit= False)
+    
