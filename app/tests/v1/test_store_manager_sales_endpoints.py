@@ -24,6 +24,19 @@ class TestProductApis(unittest.TestCase):
         response = self.app.post('http://localhost:50931/attendant/sales', data = json.dumps(newsale), content_type = 'application/json')
         response = self.app.get('http://localhost:50931/admin/sales/1')
         self.assertEqual(response.status_code, 200)
-        
+
+
+    def test_post_sales(self):
+        '''Tests whether the attendant can successfully create a new sale record (POST method); asserts true if the test passes and status code = 201'''
+        newsale = {'productname': 'Hp', 'description':'elite x', 'quantity': 1, 'price': 5000}
+        response = self.app.post('http://localhost:50931/attendant/sales', data = json.dumps(newsale), content_type = 'application/json')
+        self.assertEqual(response.status_code, 201)
+
+
+
+
+
+
+
 if __name__ == '__main__':
     unittest.main(exit= False)
