@@ -31,3 +31,14 @@ class AdminProducts(Resource):
 
             return products, 201
         return 'User not allowed to create a product'
+
+
+class Product(Resource):
+    '''Endpoint that allows a user to view a single product'''
+
+    def get(self, id):
+        '''view a single product'''
+        if id in products:
+            return products[id], 200
+        return 'Not found', 404
+        
