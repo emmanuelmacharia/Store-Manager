@@ -41,4 +41,21 @@ class Product(Resource):
         if id in products:
             return products[id], 200
         return 'Not found', 404
-        
+
+
+sales ={}
+
+class AttendantSales(Resource):
+    '''endpoint for creating and viewing sales'''
+    def get(self):
+        '''views all sales made by the attendant'''
+        return jsonify({'sales':sales})
+
+
+class AdminSale(Resource):
+    '''Endpoints for viewing sales by Admin'''
+
+    def get(self):
+      '''views all sales made by the attendants'''
+      allsales = AttendantSales.get(self)
+      return allsales    

@@ -15,5 +15,8 @@ def create_app():
 
     api.add_resource(AdminProducts, '/admin/products')
     #api.add_resource(AttendantProducts, '/attendant/products')
-
+    api.add_resource(AttendantSales, '/attendant/sales')
+    api.add_resource(AdminSale, '/admin/sales')
+    #api.add_resource(Sale, '/admin/sales/<int:id>')
+    api.add_resource(Product, '/products/<int:id>')
     return app
