@@ -58,4 +58,13 @@ class AdminSale(Resource):
     def get(self):
       '''views all sales made by the attendants'''
       allsales = AttendantSales.get(self)
-      return allsales    
+      return allsales
+
+class Sale(Resource):
+    '''Endpoint for viewing a single sale'''
+    def get(self, id):
+        #'''views single sale'''
+        if id not in sales.keys():
+            return 'Not Found', 404
+        else:
+            return sales[id] ,200
