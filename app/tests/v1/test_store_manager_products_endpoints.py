@@ -26,5 +26,15 @@ class TestProductApis(unittest.TestCase):
         response = self.app.post('http://localhost:50931/admin/products', data = json.dumps(datapoint), content_type = 'application/json')
         self.assertEqual(response.status_code, 201)
 
+    def test_single_product(self):
+        '''Tests for the get function to view a single product'''
+        datapoint ={"name" : "hp", "description" : "elite", "category" : "computers", "price" : 50000}
+        response = self.app.post('http://localhost:50931/admin/products', data = json.dumps(datapoint), content_type = 'application/json')
+        self.assertEqual(response.status_code, 201)
+        response = self.app.get('http://localhost:50931/products/1')
+        self.assertEqual(response.status_code, 200)
+
+    
+
 if __name__ == '__main__':
     unittest.main(exit= False)
