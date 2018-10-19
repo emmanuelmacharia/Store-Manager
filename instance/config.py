@@ -1,5 +1,6 @@
 import os
 
+
 class Configurations():
     DEBUG = False
     TESTING = False

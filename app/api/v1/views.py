@@ -20,16 +20,22 @@ class AdminProducts(Resource):
         if can_post:
             id = len(products)+1
             data = request.get_json()
+            if len(data) > 5:
+                return ('Can take only 5 arguments; name, description, category, quantity, price')
+            elif 'name' and 'description' and 'category' and 'quantity' and 'price' not in data.keys():
+                return ('Can take only these arguments; name, description, category, quantity, price')
             name = data['name']
             description = data['description']
             category = data['category']
+            quantity = data['quantity']
             price = data['price']
 
-            payload = {'name': name, 'description': description, 'category': category, 'price': price}
+            payload = {'name': name, 'description': description, 'category': category, 'quantity': quantity, 'price': price}
 
             products[id] = payload
 
             return products, 201
+
         return 'User not allowed to create a product'
 
 class AttendantProducts(Resource):
@@ -62,12 +68,13 @@ class AttendantSales(Resource):
         '''Creates a new sale by the attendant'''
         id = len(sales)+1
         data = request.get_json()
+        productname = data['productname']
         price = data['price']
         quantity = data['quantity']
-        productname = data['productname']
         description = data['description']
+        
+        payload = { 'productname': productname, 'description': description, 'quantity': quantity , 'price': price }
 
-        payload = { 'productname': productname, 'description':description, 'quantity': quantity , 'price': price }
         sales[id] = payload
 
         return sales, 201
