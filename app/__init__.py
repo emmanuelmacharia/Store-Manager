@@ -11,7 +11,9 @@ def create_app(config_name):
     app = Flask(__name__, instance_relative_config = True)
     app.config.from_object(app_configurations['development'])
     app.register_blueprint(v1)
+    app.config['SECRET_KEY'] = 'a-little-crazy-story'
 
+    jwt = JWTManager(app)
 
     api.add_resource(AdminProducts, '/admin/products')
     api.add_resource(AttendantProducts, '/attendant/products')
@@ -20,5 +22,6 @@ def create_app(config_name):
     api.add_resource(Sale, '/admin/sales/<int:id>')
     api.add_resource(Product, '/products/<int:id>')
     api.add_resource(Register, '/register')
+    api.add_resource(Login, '/login')
     #api.add_resource(Login, '/login')
     return app

@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify, make_response
 from flask_restful import Api, Resource
 from .models import User, users
 import re;
+from flask_jwt_extended import create_access_token, jwt_required, create_refresh_token, jwt_refresh_token_required, get_jwt_identity;
 
 #from flask_jwt import JWT, jwt_required
 
@@ -16,10 +17,12 @@ class AdminProducts(Resource):
     '''Endpoints for creating and viewing products in the application'''
 
     def get(self):
+        @jwt_required
         '''Views all the products in the application'''
         return jsonify({'products':products})
 
     def post(self):
+        @jwt_required
         '''Creates a new product in the store'''
         can_post = True
         if can_post:
@@ -44,9 +47,11 @@ class AdminProducts(Resource):
         return 'User not allowed to create a product'
 
 class AttendantProducts(Resource):
+
     '''endpoints for viewing all the products in the inventory by the attendant'''
 
     def get(self):
+        @jwt_required
         '''Views all the products in the application'''
         attendant_products = AdminProducts.get(self)
         return attendant_products
@@ -55,6 +60,7 @@ class Product(Resource):
     '''Endpoint that allows a user to view a single product'''
 
     def get(self, id):
+        @jwt_required
         '''view a single product'''
         if id in products:
             return products[id], 200
@@ -64,12 +70,14 @@ class Product(Resource):
 sales ={}
 
 class AttendantSales(Resource):
+    @jwt_required
     '''endpoint for creating and viewing sales'''
     def get(self):
         '''views all sales made by the attendant'''
         return jsonify({'sales':sales})
 
     def post(self):
+        @jwt_required
         '''Creates a new sale by the attendant'''
         id = len(sales)+1
         data = request.get_json()
@@ -77,7 +85,7 @@ class AttendantSales(Resource):
         price = data['price']
         quantity = data['quantity']
         description = data['description']
-        
+
         payload = { 'productname': productname, 'description': description, 'quantity': quantity , 'price': price }
 
         sales[id] = payload
@@ -86,16 +94,20 @@ class AttendantSales(Resource):
 
 
 class AdminSale(Resource):
+
     '''Endpoints for viewing sales by Admin'''
 
     def get(self):
+        @jwt_required
       '''views all sales made by the attendants'''
       allsales = AttendantSales.get(self)
       return allsales
 
 class Sale(Resource):
+
     '''Endpoint for viewing a single sale'''
     def get(self, id):
+        @jwt_required
         #'''views single sale'''
         if id not in sales.keys():
             return 'Not Found', 404
@@ -116,31 +128,48 @@ class Register(Resource):
 
         new_user = {'userid' : userid, 'username' : username, 'email' :email, 'password' : password}
 
+        users['userid'] = new_user
+
+        try:
+            new_user.register()
+            ac_token = create_access_token(identity = data['email'])
+            new_token = create_refresh_token(identity = data['email'])
+            return {
+                'access_token':ac_token,
+                'refresh_token':new_token
+            }
+        except:
+            return {'message':'Hmmm...something here\'s afoot'}, 404
+
        
         if username == '' :
             return {'message':'Username cannot be null'}, 401
         #elif re.match ('[a-zA-Z0-9.-]+@[(a-z|A-Z)-]+\.(com|net)', email) is not True:
         #    return {'message':'user must have a valid email'},401
         elif len(password)<6 and re.search('[a-zA-Z0-9]+', password) is not True:
-            return {'message':'user must have a valid password(at least 6 characters, with lowercase,uppercase and integers)'},401
+            return {'message':'user must have a valid password(at least 6 characters, with lowercase, uppercase and integers)'},401
         #users[userid] = new_user
 
         #requester = User.single_user(email)
         #if requester == 'Not found':
         #    requester = User(username, email, password)
         #    requester.register()
-            
+        #try:
+            #new_auth_token =
+
         return {'new user': new_user}, 201
 
-#class Login(Resource):
-#    '''Endpoint for logging in'''
-#    def post(self):
-#        '''Endpoint for posting login information'''
-#        data = request.get_json()
-#        username = data['username']
-#        email = data['email']
-#        password = User.generate_hash(data['password'])
-        
-#        for user in users:
-#            if user["username"] == username:
-#                if User.verify_hash
+
+
+class Login(Resource):
+    '''Endpoint for logging in'''
+    def post(self):
+        '''Endpoint for posting login information'''
+        data = request.get_json()
+        username = data['username']
+        email = data['email']
+        password = User.generate_hash(data['password'])
+        for user in users:
+            if user["username"] == username:
+                if User.verify_hash(user['password'], hash):
+                    response = {'message': 'login successful'}

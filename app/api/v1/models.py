@@ -17,7 +17,7 @@ class User:
         '''registers a new user'''
 
         payload = {'userid' : self.userid, 'username' : self.username, 'email' : self.email, 'password' : self.password}
-        
+
         users[self.userid] = payload
 
         return {'userid': self.userid, 'username':self.username, 'email':self.email, 'passowrd': self.password}, 201
@@ -44,3 +44,6 @@ class User:
     @staticmethod
     def verify_hash(password, hash):
         return sha256.verify(password, hash)
+
+    def signin(self, username, email, password):
+        for
