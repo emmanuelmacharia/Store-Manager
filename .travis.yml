@@ -7,7 +7,7 @@ pip install -r requirements.txt
 
 #command that runs tests
 script:
-- pytest --cov=app/api
+- pytest --cov=app/tests
 
 after_success:
 - coveralls
