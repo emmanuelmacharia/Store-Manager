@@ -132,15 +132,15 @@ class Register(Resource):
             
         return {'new user': new_user}, 201
 
-class Login(Resource):
-    '''Endpoint for logging in'''
-    def post(self):
-        '''Endpoint for posting login information'''
-        data = request.get_json()
-        username = data['username']
-        email = data['email']
-        password = User.generate_hash(data['password'])
+#class Login(Resource):
+#    '''Endpoint for logging in'''
+#    def post(self):
+#        '''Endpoint for posting login information'''
+#        data = request.get_json()
+#        username = data['username']
+#        email = data['email']
+#        password = User.generate_hash(data['password'])
         
-        for user in users:
-            if user["username"] == username:
-                if User.verify_hash
+#        for user in users:
+#            if user["username"] == username:
+#                if User.verify_hash
