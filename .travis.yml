@@ -13,5 +13,10 @@ script:
  
  after success:
  - coveralls
+ 
+ branches:
+  only:
+  - developer
+ 
 
 
