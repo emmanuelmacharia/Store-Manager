@@ -1,6 +1,7 @@
 
 
 # Store manager
+[![Coverage Status](https://coveralls.io/repos/github/emmanuelmacharia/Store-Manager/badge.svg)](https://coveralls.io/github/emmanuelmacharia/Store-Manager)
 
 A store management platforms that digitizes operations that take place in a store. It has two types of users; **the manager:** Their responsibilities are to:
 * Manage inventory: The manager can add new products to the inventory, can delete products from the inventory, can modify details of the products and add more when they run out of stock.
