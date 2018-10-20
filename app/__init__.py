@@ -1,7 +1,7 @@
 from flask import Blueprint, Flask
 from instance.config import *
 from flask_restful import Api, Resource
-from app.api.v1.views import AdminProducts, AttendantProducts, AttendantSales, AdminSale, Sale, Product, Register, Login
+from app.api.v1.views import AdminProducts, AttendantProducts, AttendantSales, AdminSale, Sale, Product, Register
 
 
 v1 = Blueprint('v1',__name__,url_prefix='/api/v1')
@@ -20,5 +20,5 @@ def create_app(config_name):
     api.add_resource(Sale, '/admin/sales/<int:id>')
     api.add_resource(Product, '/products/<int:id>')
     api.add_resource(Register, '/register')
-    api.add_resource(Login, '/login')
+    #api.add_resource(Login, '/login')
     return app
