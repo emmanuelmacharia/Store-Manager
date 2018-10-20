@@ -1,5 +1,8 @@
 from flask import Flask, request, jsonify, make_response
 from flask_restful import Api, Resource
+from models import User, users
+from flask_jwt import JWT, jwt_required
+
 
 app  = Flask(__name__)
 api = Api(app)
@@ -96,3 +99,27 @@ class Sale(Resource):
             return 'Not Found', 404
         else:
             return sales[id] ,200
+
+
+class Register(Resource):
+    '''Endpoint for registation of a new user'''
+    def post(self):
+        '''creates a new user'''
+
+        data = request.get_json()
+        if username == '' :
+            return jsonify({'message':'Username cannot be null'}), 401
+        elif re.match ('[a-zA-Z0-9.-]+@[a-zA-Z-]+\.(com|net)', email) is not True:
+            return jsonify({'message':'user must have a valid email'}),401
+        elif len(password)<6 and re.search('[a-zA-Z0-9]+', password) is not True:
+            return jsonify({'message':'user must have a valid password(at least 6 characters, with lowercase,uppercase and integers)'}),401
+        userid = data['userid']
+        username = data['username']
+        email = data['email']
+        password = data['password']
+
+        requester = User.single_user(email)
+
+        if requester == 'No User by that email, please register first':
+            requester = User(username, email, password)
+            requester.register()
