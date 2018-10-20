@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, request
-#from flask_jwt import JWT, jwt_required, current_identity
+from passlib.hash import pbkdf2_sha256 as sha256
 import re
 
 
@@ -16,17 +16,31 @@ class User:
     def register(self):
         '''registers a new user'''
 
-        payload = {'userid' : self.userid, 'username' : self.username, 'email' : self.email, 'passowrd' : self.password}
+        payload = {'userid' : self.userid, 'username' : self.username, 'email' : self.email, 'password' : self.password}
+        
         users[self.userid] = payload
 
-        #return jsonify({'userid': self.userid, 'username':self.username, 'email':self.email, 'passowrd': self.password, }), 201
+        return {'userid': self.userid, 'username':self.username, 'email':self.email, 'passowrd': self.password}, 201
 
 
-    def single_user(self, email):
+    def single_user(self):
         '''Finds a single user, if not found, should return 404'''
-        for key in User.users:
+        for key in users:
+            print(key)
+            for key in users[self.userid]:
             #if key == self.userid
-            if key == self.email:
-                return users[self.email]
-            else:
-                return 'No User by that email, please register first'
+                print(key)
+                print(self.email)
+                if key == self.email:
+                    print(key)
+                    return users[email]
+                else:
+                    return 'Not found'
+
+    @staticmethod
+    def generate_hash(password):
+        return sha256.hash(password)
+
+    @staticmethod
+    def verify_hash(password, hash):
+        return sha256.verify(password, hash)
