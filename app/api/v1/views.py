@@ -131,3 +131,6 @@ class Register(Resource):
         #    requester.register()
             
         return {'new user': new_user}, 201
+
+class Login(Resource):
+    '''Endpoint
