@@ -16,13 +16,13 @@ products = {}
 class AdminProducts(Resource):
     '''Endpoints for creating and viewing products in the application'''
 
+    @jwt_required
     def get(self):
-        @jwt_required
         '''Views all the products in the application'''
         return jsonify({'products':products})
 
+    @jwt_required
     def post(self):
-        @jwt_required
         '''Creates a new product in the store'''
         can_post = True
         if can_post:
@@ -50,8 +50,8 @@ class AttendantProducts(Resource):
 
     '''endpoints for viewing all the products in the inventory by the attendant'''
 
+    @jwt_required
     def get(self):
-        @jwt_required
         '''Views all the products in the application'''
         attendant_products = AdminProducts.get(self)
         return attendant_products
@@ -59,8 +59,8 @@ class AttendantProducts(Resource):
 class Product(Resource):
     '''Endpoint that allows a user to view a single product'''
 
+    @jwt_required
     def get(self, id):
-        @jwt_required
         '''view a single product'''
         if id in products:
             return products[id], 200
@@ -70,14 +70,14 @@ class Product(Resource):
 sales ={}
 
 class AttendantSales(Resource):
-    @jwt_required
     '''endpoint for creating and viewing sales'''
+    @jwt_required
     def get(self):
         '''views all sales made by the attendant'''
         return jsonify({'sales':sales})
 
+    @jwt_required
     def post(self):
-        @jwt_required
         '''Creates a new sale by the attendant'''
         id = len(sales)+1
         data = request.get_json()
@@ -97,18 +97,18 @@ class AdminSale(Resource):
 
     '''Endpoints for viewing sales by Admin'''
 
+    @jwt_required
     def get(self):
-        @jwt_required
       '''views all sales made by the attendants'''
       allsales = AttendantSales.get(self)
       return allsales
 
 class Sale(Resource):
-
     '''Endpoint for viewing a single sale'''
+
+    @jwt_required
     def get(self, id):
-        @jwt_required
-        #'''views single sale'''
+        '''views single sale'''
         if id not in sales.keys():
             return 'Not Found', 404
         else:
@@ -121,43 +121,24 @@ class Register(Resource):
         '''creates a new user'''
 
         data = request.get_json()
-        userid = data['userid']
         username = data['username']
         email = data['email']
-        password = User.generate_hash(data['password'])
+        password = data['password']
 
-        new_user = {'userid' : userid, 'username' : username, 'email' :email, 'password' : password}
-
-        users['userid'] = new_user
-
-        try:
-            new_user.register()
-            ac_token = create_access_token(identity = data['email'])
-            new_token = create_refresh_token(identity = data['email'])
-            return {
-                'access_token':ac_token,
-                'refresh_token':new_token
-            }
-        except:
-            return {'message':'Hmmm...something here\'s afoot'}, 404
-
-       
         if username == '' :
             return {'message':'Username cannot be null'}, 401
         #elif re.match ('[a-zA-Z0-9.-]+@[(a-z|A-Z)-]+\.(com|net)', email) is not True:
         #    return {'message':'user must have a valid email'},401
         elif len(password)<6 and re.search('[a-zA-Z0-9]+', password) is not True:
             return {'message':'user must have a valid password(at least 6 characters, with lowercase, uppercase and integers)'},401
-        #users[userid] = new_user
-
-        #requester = User.single_user(email)
-        #if requester == 'Not found':
-        #    requester = User(username, email, password)
-        #    requester.register()
-        #try:
-            #new_auth_token =
-
-        return {'new user': new_user}, 201
+        User.generate_hash(password)
+        try:
+            new_user = User.register(username, email, password)
+            ac_token = create_access_token(identity = data['email'])
+            new_token = create_refresh_token(identity = data['email'])
+            return {'message': 'new user created','access_token':ac_token,'refresh_token':new_token}, 201
+        except:
+            return {'message':'Hmmm...something here\'s afoot'}, 404
 
 
 
@@ -168,8 +149,43 @@ class Login(Resource):
         data = request.get_json()
         username = data['username']
         email = data['email']
-        password = User.generate_hash(data['password'])
-        for user in users:
-            if user["username"] == username:
-                if User.verify_hash(user['password'], hash):
-                    response = {'message': 'login successful'}
+        password = data['password']
+        if username == '' :
+            return {'message':'Username cannot be null'}, 401
+        #elif re.match ('[a-zA-Z0-9.-]+@[(a-z|A-Z)-]+\.(com|net)', email) is not True:
+        #    return {'message':'user must have a valid email'},401
+        elif len(password)<6 and re.search('[a-zA-Z0-9]+', password) is not True:
+            return {'message':'user must have a valid password(at least 6 characters, with lowercase, uppercase and integers)'},401
+        User.generate_hash(password)
+        session = User.single_user(email)
+        if session == 'Not found':
+            return {'message': 'Username, {}, email, {} or password dont seem to exist'.format(username, email)}, 400
+        if User.verify_hash(password, emial) == True:
+            ac_token = create_access_token(identity = email)
+            new_token = create_refresh_token(identity = email)
+
+            return {
+                'message':'User successfully logged in',
+                'status': 'Success',
+                'access_token':ac_token,
+                'refresh_token': new_token
+            }, 200
+        return {'message': 'no user by that email, please check your credentials'}, 400
+
+
+
+
+
+
+
+
+
+
+
+
+        # for user in users:
+        #     if user["username"] == username:
+        #         if User.verify_hash(user['password'], hash):
+        #             response = {'message': 'login successful'}
+        #         else:
+        #             return {'message': 'username or password incorrect, please try again'}

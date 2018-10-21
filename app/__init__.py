@@ -1,8 +1,8 @@
 from flask import Blueprint, Flask
 from instance.config import *
 from flask_restful import Api, Resource
-from app.api.v1.views import AdminProducts, AttendantProducts, AttendantSales, AdminSale, Sale, Product, Register
-
+from app.api.v1.views import AdminProducts, AttendantProducts, AttendantSales, AdminSale, Sale, Product, Register, Login
+from flask_jwt_extended import JWTManager
 
 v1 = Blueprint('v1',__name__,url_prefix='/api/v1')
 api = Api(v1)

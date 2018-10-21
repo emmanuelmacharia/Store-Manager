@@ -6,34 +6,23 @@ import re
 
 users = {}
 class User:
-    '''Endpoint for user authentication'''
-    def __init__(self, username,email, password):
-        self.username = username
-        self.email  = email
-        self.password = password
-        self.userid = len(users)+1
-
-    def register(self):
+    '''models for the users who have registered'''
+    def register(username, email, password):
         '''registers a new user'''
-
-        payload = {'userid' : self.userid, 'username' : self.username, 'email' : self.email, 'password' : self.password}
-
-        users[self.userid] = payload
-
-        return {'userid': self.userid, 'username':self.username, 'email':self.email, 'passowrd': self.password}, 201
+        userid = len(users)+1
+        payload = {'username' : username, 'email' : email, 'password' : password}
+        users[userid] = payload
+        return users[userid]
 
 
-    def single_user(self):
+
+    def single_user(email):
         '''Finds a single user, if not found, should return 404'''
         for key in users:
-            print(key)
-            for key in users[self.userid]:
-            #if key == self.userid
-                print(key)
-                print(self.email)
-                if key == self.email:
-                    print(key)
-                    return users[email]
+            for key in users[key]:
+                if key == 'email':
+                    if email == users[userid]['email']:
+                        result = users[userid]
                 else:
                     return 'Not found'
 
@@ -45,5 +34,5 @@ class User:
     def verify_hash(password, hash):
         return sha256.verify(password, hash)
 
-    def signin(self, username, email, password):
-        for
+    # def signin(self, username, email, password):
+    #     for
