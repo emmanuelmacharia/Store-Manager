@@ -4,7 +4,13 @@ import re
 
 
 
-users = {}
+users = {1:{
+        'username':'Spongebob',
+        'email': 'spongebobsquarepants@bikinibottom.sea',
+        'password': 'CrustyKr1abs'
+    }
+}
+
 class User:
     '''models for the users who have registered'''
     def register(username, email, password):

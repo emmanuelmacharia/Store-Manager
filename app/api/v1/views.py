@@ -140,11 +140,11 @@ class Register(Resource):
         password = data['password']
 
         if username == '' :
-            return {'message':'Username cannot be null'}, 401
-        #elif re.match ('[a-zA-Z0-9.-]+@[(a-z|A-Z)-]+\.(com|net)', email) is not True:
-        #    return {'message':'user must have a valid email'},401
+            return {'message':'Username cannot be null'}, 406
+        elif not re.search (r"(^[a-zA-Z0-9_.-]+@[a-zA-Z-]+\.[.a-zA-Z-]+$)", email):
+             return {'message':'user must have a valid email'},406
         elif len(password)<6 and re.search('[a-zA-Z0-9]+', password) is not True:
-            return {'message':'user must have a valid password(at least 6 characters, with lowercase, uppercase and integers)'},401
+            return {'message':'user must have a valid password(at least 6 characters, with lowercase, uppercase and integers)'},406
         User.generate_hash(password)
         try:
             new_user = User.register(username, email, password)
@@ -174,7 +174,7 @@ class Login(Resource):
         session = User.single_user(email)
         if session == 'Not found':
             return {'message': 'Username, {}, email, {} or password dont seem to exist'.format(username, email)}, 400
-        if User.verify_hash(password, emial) == True:
+        if User.verify_hash(password, email) == True:
             ac_token = create_access_token(identity = email)
             new_token = create_refresh_token(identity = email)
 
