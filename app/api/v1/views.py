@@ -25,6 +25,13 @@ class AdminProducts(Resource):
         if can_post:
             id = len(products)+1
             data = request.get_json()
+            name = data['name']
+            description = data['description']
+            category = data['category']
+            price = data['price']
+
+            payload = {'name': name, 'description': description, 'category': category, 'price': price}
+
             if len(data) > 5:
                 return ('Can take only 5 arguments; name, description, category, quantity, price')
             elif 'name' and 'description' and 'category' and 'quantity' and 'price' not in data.keys():
@@ -36,6 +43,7 @@ class AdminProducts(Resource):
             price = data['price']
 
             payload = {'name': name, 'description': description, 'category': category, 'quantity': quantity, 'price': price}
+
 
             products[id] = payload
 
@@ -73,12 +81,19 @@ class AttendantSales(Resource):
         '''Creates a new sale by the attendant'''
         id = len(sales)+1
         data = request.get_json()
+
+        price = data['price']
+        quantity = data['quantity']
+        productname = data['productname']
+        description = data['description']
+        payload = { 'productname': productname, 'description':description, 'quantity': quantity , 'price': price }
         productname = data['productname']
         price = data['price']
         quantity = data['quantity']
         description = data['description']
         
         payload = { 'productname': productname, 'description': description, 'quantity': quantity , 'price': price }
+
 
         sales[id] = payload
 
@@ -101,8 +116,7 @@ class Sale(Resource):
             return 'Not Found', 404
         else:
             return sales[id] ,200
-
-
+          
 class Register(Resource):
     '''Endpoint for registation of a new user'''
     def post(self):
@@ -144,3 +158,4 @@ class Register(Resource):
 #        for user in users:
 #            if user["username"] == username:
 #                if User.verify_hash
+
