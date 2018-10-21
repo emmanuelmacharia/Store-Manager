@@ -1,13 +1,17 @@
+
+#commands that specify the language
+
 language: python
 python:
 - "3.6"
+- "3.6.5"
 
 #command that installs dependancies
 pip install -r requirements.txt
 
 #command that runs tests
 script:
-- pytest --cov=app/api
+- pytest --cov=app/tests/v1
 
 after_success:
 - coveralls
