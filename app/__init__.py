@@ -23,5 +23,4 @@ def create_app(config_name):
     api.add_resource(Product, '/products/<int:id>')
     api.add_resource(Register, '/register')
     api.add_resource(Login, '/login')
-    #api.add_resource(Login, '/login')
     return app
