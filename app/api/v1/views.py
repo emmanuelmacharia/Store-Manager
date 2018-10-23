@@ -103,6 +103,7 @@ class AttendantSales(Resource):
 
         sales[id] = payload
 
+
         return sales, 201
 
 
@@ -164,8 +165,8 @@ class Login(Resource):
         password = data['password']
         if not username :
             return {'message':'Username cannot be null'}, 400
-        #elif re.match ('[a-zA-Z0-9.-]+@[(a-z|A-Z)-]+\.(com|net)', email) is not True:
-        #    return {'message':'user must have a valid email'},401
+        elif not re.search (r"(^[a-zA-Z0-9_.-]+@[a-zA-Z-]+\.[.a-zA-Z-]+$)", email):
+             return {'message':'user must have a valid email'},400
         elif len(password)<6 and re.search('[a-zA-Z0-9]+', password) is not True:
             return {'message':'user must have a valid password(at least 6 characters, with lowercase, uppercase and integers)'},400
         User.generate_hash(password)
