@@ -35,18 +35,13 @@ class AdminProducts(Resource):
 
             payload = {'name': name, 'description': description, 'category': category, 'price': price}
 
-            if len(data) > 5:
+            if len(data) > 5 and 'name' and 'description' and 'category' and 'quantity' and 'price' not in data.keys() and 'quantity'.isint():
                 return ('Can take only 5 arguments; name, description, category, quantity, price')
-            elif 'name' and 'description' and 'category' and 'quantity' and 'price' not in data.keys():
-                return ('Can take only these arguments; name, description, category, quantity, price')
-            name = data['name']
-            description = data['description']
-            category = data['category']
-            quantity = data['quantity']
-            price = data['price']
 
-            payload = {'name': name, 'description': description, 'category': category, 'quantity': quantity, 'price': price}
-
+            for item in products.values():
+                for i in item.values():
+                    if i == data['name']:
+                        product.values()['quantity'] += data['quantity']
 
             products[id] = payload
 
@@ -95,13 +90,16 @@ class AttendantSales(Resource):
         productname = data['productname']
         description = data['description']
         payload = { 'productname': productname, 'description':description, 'quantity': quantity , 'price': price }
-        productname = data['productname']
-        price = data['price']
-        quantity = data['quantity']
-        description = data['description']
 
-        payload = { 'productname': productname, 'description': description, 'quantity': quantity , 'price': price }
-
+        for item in payload.values():
+            if item in products.values():
+                for i in products.values():
+                    if data['quantity'].isint() and products.values()['quantity'] >= data['quantity']:
+                        products.values()['quantity'] - data['quantity']
+                    else:
+                        return 'the product {} is almost out / not in stock at the moment. please check the quantity of the product again.Only {} are left'.format(sales.values()['productname'], products.values()['quantity'])
+            else:
+                return "there's no {}. please check your input".format(sales.values()['productname'])
 
         sales[id] = payload
 
@@ -140,20 +138,20 @@ class Register(Resource):
         password = data['password']
 
         if username == '' :
-            return {'message':'Username cannot be null'}, 406
+            return {'message':'Username cannot be null'}, 400
         elif not re.search (r"(^[a-zA-Z0-9_.-]+@[a-zA-Z-]+\.[.a-zA-Z-]+$)", email):
-             return {'message':'user must have a valid email'},406
+             return {'message':'user must have a valid email'},400
         elif len(password)<6 and re.search('[a-zA-Z0-9]+', password) is not True:
-            return {'message':'user must have a valid password(at least 6 characters, with lowercase, uppercase and integers)'},406
-        User.generate_hash(password)
+            return {'message':'user must have a valid password(at least 6 characters, with lowercase, uppercase and integers)'},400
+        hash = User.generate_hash(password)
         try:
-            new_user = User.register(username, email, password)
+            new_user = User.register(username, email, hash)
+            print(users)
             ac_token = create_access_token(identity = data['email'])
             new_token = create_refresh_token(identity = data['email'])
             return {'message': 'new user created','access_token':ac_token,'refresh_token':new_token}, 201
         except:
             return {'message':'Hmmm...something here\'s afoot'}, 404
-
 
 
 class Login(Resource):
@@ -164,12 +162,12 @@ class Login(Resource):
         username = data['username']
         email = data['email']
         password = data['password']
-        if username == '' :
-            return {'message':'Username cannot be null'}, 401
+        if not username :
+            return {'message':'Username cannot be null'}, 400
         #elif re.match ('[a-zA-Z0-9.-]+@[(a-z|A-Z)-]+\.(com|net)', email) is not True:
         #    return {'message':'user must have a valid email'},401
         elif len(password)<6 and re.search('[a-zA-Z0-9]+', password) is not True:
-            return {'message':'user must have a valid password(at least 6 characters, with lowercase, uppercase and integers)'},401
+            return {'message':'user must have a valid password(at least 6 characters, with lowercase, uppercase and integers)'},400
         User.generate_hash(password)
         session = User.single_user(email)
         if session == 'Not found':

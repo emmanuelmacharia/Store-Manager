@@ -4,41 +4,43 @@ import re
 
 
 
-users = {1:{
-        'username':'Spongebob',
-        'email': 'spongebobsquarepants@bikinibottom.sea',
-        'password': 'CrustyKr1abs'
+users = [{
+        "username":"Spongebob",
+        "email": "spongebobsquarepants@bikinibottom.sea",
+        "password": sha256.hash("CrustyKr1abs")
     }
-}
+]
 
 class User:
     '''models for the users who have registered'''
-    def register(username, email, password):
+    def register(username, email, hash):
         '''registers a new user'''
         userid = len(users)+1
-        payload = {'username' : username, 'email' : email, 'password' : password}
-        users[userid] = payload
-        return users[userid]
+        payload = {'username' : username, 'email' : email, 'password' : hash}
+        users.append(payload)
+        #users[userid] = payload
+        #return users[userid]
+        return users
 
 
 
     def single_user(email):
         '''Finds a single user, if not found, should return 404'''
-        for key in users:
-            for key in users[key]:
-                if key == 'email':
-                    if email == users[userid]['email']:
-                        result = users[userid]
-                else:
-                    return 'Not found'
+        result = next((user for user in users if user['email'] == email), False)
+        if result == False:
+             return 'Not found'
+        return result
 
     @staticmethod
     def generate_hash(password):
         return sha256.hash(password)
 
     @staticmethod
-    def verify_hash(password, hash):
-        return sha256.verify(password, hash)
+    def verify_hash(password, email):
+        result = next((user for user in users if user['email'] == email), False)
+        if result == False:
+            return Falses
+        return sha256.verify(password, result['password'])
 
     # def signin(self, username, email, password):
     #     for
