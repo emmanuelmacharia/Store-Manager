@@ -56,9 +56,9 @@ class TestUsersApi(unittest.TestCase):
         response = self.app.post('api/v1/register', data = json.dumps(self.test_valid_input), content_type = 'application/json')
         self.assertEqual(response.status_code, 201)
 
-    def test_login_success(self):
-        '''tests whether the input provided matches with an existing user, and returns 200 upon login success'''
-        test_user = self.register()
-        test_user = self.test_valid_input
-        response = self.app.post('api/v1/login', data = json.dumps(test_user), content_type = 'application/json')
-        self.assertEqual(response.status_code, 200)
+    # def test_login_success(self):
+    #     '''tests whether the input provided matches with an existing user, and returns 200 upon login success'''
+    #     test_user = self.register()
+    #     test_user = self.test_valid_input
+    #     response = self.app.post('api/v1/login', data = json.dumps(test_user), content_type = 'application/json')
+    #     self.assertEqual(response.status_code, 200)

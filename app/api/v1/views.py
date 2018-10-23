@@ -38,10 +38,10 @@ class AdminProducts(Resource):
             if len(data) > 5 and 'name' and 'description' and 'category' and 'quantity' and 'price' not in data.keys() and 'quantity'.isint():
                 return ('Can take only 5 arguments; name, description, category, quantity, price')
 
-            for item in products.values():
-                for i in item.values():
-                    if i == data['name']:
-                        product.values()['quantity'] += data['quantity']
+            # for item in products.values():
+            #     for i in item.values():
+            #         if i == data['name']:
+            #             product.values()['quantity'] += data['quantity']
 
             products[id] = payload
 
@@ -91,15 +91,15 @@ class AttendantSales(Resource):
         description = data['description']
         payload = { 'productname': productname, 'description':description, 'quantity': quantity , 'price': price }
 
-        for item in payload.values():
-            if item in products.values():
-                for i in products.values():
-                    if data['quantity'].isint() and products.values()['quantity'] >= data['quantity']:
-                        products.values()['quantity'] - data['quantity']
-                    else:
-                        return 'the product {} is almost out / not in stock at the moment. please check the quantity of the product again.Only {} are left'.format(sales.values()['productname'], products.values()['quantity'])
-            else:
-                return "there's no {}. please check your input".format(sales.values()['productname'])
+        # for item in payload.values():
+        #     if item in products.values():
+        #         for i in products.values():
+        #             if data['quantity'].isint() and products.values()['quantity'] >= data['quantity']:
+        #                 products.values()['quantity'] - data['quantity']
+        #             else:
+        #                 return 'the product {} is almost out / not in stock at the moment. please check the quantity of the product again.Only {} are left'.format(sales.values()['productname'], products.values()['quantity'])
+        #     else:
+        #         return "there's no {}. please check your input".format(sales.values()['productname'])
 
         sales[id] = payload
 
