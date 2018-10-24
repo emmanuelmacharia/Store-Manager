@@ -9,7 +9,8 @@ install:
 - pip install -r requirements.txt
 #command that runs tests
 script:
-- pytest --cov-report term missing --cov=app
+-  nosetests --exe -v --with-coverage --cover-package=app
+
 
 after_success:
 - coveralls
