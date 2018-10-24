@@ -4,43 +4,43 @@ import re
 
 
 
-users = {}
+users = [{
+        "username":"Spongebob",
+        "email": "spongebobsquarepants@bikinibottom.sea",
+        "password": sha256.hash("CrustyKr1abs")
+    }
+]
+
 class User:
-    '''Endpoint for user authentication'''
-    def __init__(self, username,email, password):
-        self.username = username
-        self.email  = email
-        self.password = password
-        self.userid = len(users)+1
-
-    def register(self):
+    '''models for the users who have registered'''
+    def register(username, email, hash):
         '''registers a new user'''
+        userid = len(users)+1
+        payload = {'username' : username, 'email' : email, 'password' : hash}
+        users.append(payload)
+        #users[userid] = payload
+        #return users[userid]
+        return users
 
-        payload = {'userid' : self.userid, 'username' : self.username, 'email' : self.email, 'password' : self.password}
-        
-        users[self.userid] = payload
-
-        return {'userid': self.userid, 'username':self.username, 'email':self.email, 'passowrd': self.password}, 201
 
 
-    def single_user(self):
+    def single_user(email):
         '''Finds a single user, if not found, should return 404'''
-        for key in users:
-            print(key)
-            for key in users[self.userid]:
-            #if key == self.userid
-                print(key)
-                print(self.email)
-                if key == self.email:
-                    print(key)
-                    return users[email]
-                else:
-                    return 'Not found'
+        result = next((user for user in users if user['email'] == email), False)
+        if result == False:
+             return 'Not found'
+        return result
 
     @staticmethod
     def generate_hash(password):
         return sha256.hash(password)
 
     @staticmethod
-    def verify_hash(password, hash):
-        return sha256.verify(password, hash)
+    def verify_hash(password, email):
+        result = next((user for user in users if user['email'] == email), False)
+        if result == False:
+            return Falses
+        return sha256.verify(password, result['password'])
+
+    # def signin(self, username, email, password):
+    #     for
