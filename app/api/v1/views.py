@@ -31,6 +31,7 @@ class AdminProducts(Resource):
             name = data['name']
             description = data['description']
             category = data['category']
+            quantity = data['quantity']
             price = data['price']
 
             payload = {'name': name, 'description': description, 'category': category, 'price': price}
@@ -142,7 +143,7 @@ class Register(Resource):
             return {'message':'Username cannot be null'}, 400
         elif not re.search (r"(^[a-zA-Z0-9_.-]+@[a-zA-Z-]+\.[.a-zA-Z-]+$)", email):
              return {'message':'user must have a valid email'},400
-        elif len(password)<6 and re.search('[a-zA-Z0-9]+', password) is not True:
+        elif len(password)>6 and re.search('[a-zA-Z0-9]+', password) is not True:
             return {'message':'user must have a valid password(at least 6 characters, with lowercase, uppercase and integers)'},400
         hash = User.generate_hash(password)
         try:
